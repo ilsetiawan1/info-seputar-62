@@ -1,66 +1,256 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📰 Info Seputar +62
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Portal Berita Digital Modern Berbasis Laravel**
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📖 Deskripsi Project
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Info Seputar +62** adalah platform portal berita berbasis web yang memungkinkan pengguna untuk membaca, mencari, dan berinteraksi dengan berbagai informasi terkini dari berbagai kategori seperti teknologi, politik, dan olahraga.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Aplikasi ini dibangun menggunakan **Laravel (Fullstack)** dengan fokus pada:
 
-## Learning Laravel
+* ⚡ Performa cepat
+* 🔎 SEO-friendly
+* 🧱 Arsitektur scalable
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Sistem ini juga menyediakan fitur **manajemen konten untuk penulis dan editor**, sehingga mendukung workflow editorial seperti portal berita profesional.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Tech Stack
 
-## Laravel Sponsors
+* **Backend & Frontend**: Laravel 12 (Blade)
+* **Database**: MySQL
+* **Styling**: Tailwind CSS
+* **Auth**: Laravel Breeze
+* **Caching (Ready)**: Redis
+* **Queue (Ready)**: Laravel Queue
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🧩 Fitur Utama
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 📰 1. Manajemen Konten
 
-## Contributing
+* CRUD artikel
+* Kategori & tag
+* Upload thumbnail
+* Status artikel:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+  * Draft
+  * Review
+  * Published
+  * Archived
+* Schedule publish
+* Featured article
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 👤 2. User & Role
 
-## Security Vulnerabilities
+* Login & Register
+* Role:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+  * Admin
+  * Editor
+  * Penulis
+* Role-based access control (RBAC)
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 🔍 3. Navigasi & Discovery
+
+* Search artikel
+* Filter kategori & tag
+* Pagination
+* Artikel terkait
+
+---
+
+### 💬 4. Engagement
+
+* Komentar (nested reply – max 2 level)
+* View count
+* Trending artikel
+
+---
+
+### 🖥️ 5. Frontend Experience
+
+* Homepage (headline + latest news)
+* Detail artikel
+* Halaman kategori
+* Responsive design (Tailwind CSS)
+* Toast notification (UX feedback)
+
+---
+
+### ⚙️ 6. System & Optimization
+
+* Caching (Redis-ready)
+* Queue system (email, image processing)
+* SEO optimization:
+
+  * Meta tags
+  * Open Graph
+  * Sitemap
+
+---
+
+### 🖼️ 7. Media Management
+
+* Upload gambar
+* Media library
+* Optimasi gambar
+
+---
+
+### 🚀 8. Advanced (Opsional)
+
+* Recommendation system
+* Breaking news
+* Analytics dashboard
+* Multi-language support
+
+---
+
+## 🛠️ Instalasi & Setup
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/username/info-seputar-62.git
+cd info-seputar-62
+```
+
+### 2. Install Dependency
+
+```bash
+composer install
+npm install
+```
+
+### 3. Setup Environment
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+### 4. Konfigurasi Database
+
+Edit `.env`:
+
+```env
+DB_DATABASE=your_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 5. Migration & Seeder
+
+```bash
+php artisan migrate --seed
+```
+
+### 6. Jalankan Project
+
+```bash
+npm run dev
+php artisan serve
+```
+
+Akses di:
+
+```
+http://localhost:8000
+```
+
+---
+
+## 👤 Role & Akses
+
+| Role    | Akses                               |
+| ------- | ----------------------------------- |
+| Admin   | Full akses + manajemen user         |
+| Editor  | Review & publish artikel            |
+| Penulis | Membuat & mengelola artikel sendiri |
+
+---
+
+## 🧱 Struktur Fitur Berdasarkan Phase
+
+### ✅ Phase 0–4 (Completed)
+
+* Setup project
+* CRUD artikel & kategori
+* Role & workflow dasar
+* UI frontend
+* Search & tagging
+
+---
+
+### 🚧 Phase 5 (Current)
+
+* Auth (Login/Register dengan Breeze)
+* Role-based redirect
+* Middleware protection
+* Komentar & engagement
+
+---
+
+### 🔜 Phase 6
+
+* Admin Dashboard
+* Manajemen artikel (approve/reject)
+* Manajemen user
+* Panel Editor & Penulis
+
+---
+
+### 🔜 Phase 7–10
+
+* Optimization (cache, indexing)
+* SEO enhancement
+* Media management
+* Advanced features
+
+---
+
+## 📌 Insight Project
+
+> Tanpa admin panel → hanya blog biasa
+> Dengan admin panel + role → sistem portal berita profesional
+
+Project ini dirancang untuk mensimulasikan **workflow editorial nyata** seperti pada platform berita modern.
+
+---
+
+## 📸 Preview (Opsional)
+
+> Tambahkan screenshot di sini (homepage, dashboard, dll)
+
+---
+
+## 🤝 Kontribusi
+
+Pull request terbuka untuk pengembangan lebih lanjut.
+
+---
+
+## 📄 Lisensi
+
+Project ini dibuat untuk keperluan pembelajaran dan Tugas Akhir.
+
+---
+
+## 👨‍💻 Author
+
+**Muhammad Ilham Setiawan**
+
+* 📧 [m.ilsetiawan1@gmail.com](mailto:m.ilsetiawan1@gmail.com)
+* 🔗 [LinkedIn](https://www.linkedin.com/in/muhammad-ilham-setiawan)
+* 📸 Instagram: @ilsetiawann
+
+---
