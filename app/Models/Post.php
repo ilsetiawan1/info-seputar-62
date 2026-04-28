@@ -85,4 +85,17 @@ class Post extends Model
     {
         return $this->hasMany(PostView::class);
     }
+
+    public function getThumbnailUrlAttribute()
+    {
+        if (empty($this->thumbnail)) {
+            return asset('images/default-thumbnail.jpg');
+        }
+
+        if (str_starts_with($this->thumbnail, 'http')) {
+            return $this->thumbnail;
+        }
+
+        return asset('storage/' . $this->thumbnail);
+    }
 }
