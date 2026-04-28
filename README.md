@@ -233,18 +233,6 @@ Project ini dirancang untuk mensimulasikan **workflow editorial nyata** seperti 
 
 ---
 
-## 🤝 Kontribusi
-
-Pull request terbuka untuk pengembangan lebih lanjut.
-
----
-
-## 📄 Lisensi
-
-Project ini dibuat untuk keperluan pembelajaran dan Tugas Akhir.
-
----
-
 ## 👨‍💻 Author
 
 **Muhammad Ilham Setiawan**
