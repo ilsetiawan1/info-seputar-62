@@ -1,3 +1,7 @@
+<!-- resources\views\home.blade.php -->
+
+
+
 @extends('layouts.app')
 
 @section('title', 'Beranda')
@@ -10,7 +14,7 @@
 <section class="hero" aria-label="Berita utama">
     <div class="hero-bg">
         @if($headline->thumbnail)
-            <img src="{{ asset('storage/' . $headline->thumbnail) }}" alt="{{ $headline->title }}" loading="eager">
+            <img src="{{ $headline->thumbnail_url }}" alt="{{ $headline->title }}" loading="eager">
         @else
             <div style="background:linear-gradient(135deg,#1a1a24,#2e2e3d);width:100%;height:100%;"></div>
         @endif

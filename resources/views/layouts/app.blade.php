@@ -1,3 +1,4 @@
+<!-- resources/views/layouts/app.blade.php -->
 
 <!DOCTYPE html>
 <html lang="id">
@@ -6,14 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-{{-- Meta default (temporary) --}}
-<meta name="description" content="@yield('meta_description', 'Portal berita terpercaya dengan informasi terbaru dan teraktual.')">
-<meta property="og:title" content="@yield('title', 'Info Seputar +62')">
-<meta property="og:image" content="@yield('og_image', asset('images/default-og.jpg'))">
+    <meta name="description" content="@yield('meta_description', 'Portal berita terpercaya dengan informasi terbaru dan teraktual.')">
+    <meta property="og:title" content="@yield('title', 'Info Seputar +62')">
+    <meta property="og:image" content="@yield('og_image', asset('images/default-og.jpg'))">
 
     <title>@yield('title', 'Info Seputar +62') | Info Seputar +62</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,7 +24,7 @@
     <div id="reading-bar"></div>
     @endif
 
-    {{-- ══ Navbar Default ══ --}}
+    {{-- ══ Navbar ══ --}}
     <nav class="navbar relative z-100">
         <div class="container-site navbar-inner">
 
@@ -34,14 +33,14 @@
                 <div class="nav-logo-icon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
                 </div>
-                <div class="nav-logo-text">Info<span class="nav-logo-accent">Seputar</span></div>
+                <div class="nav-logo-text">Info<span class="nav-logo-accent">Seputar</span> +62</div>
             </a>
 
             {{-- Desktop Links --}}
             <div class="nav-links">
                 <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Beranda</a>
                 <a href="{{ route('search') }}" class="nav-link {{ request()->routeIs('search') ? 'active' : '' }}">Eksplor</a>
-                
+
                 @auth
                     @if(auth()->user()->role === 'admin')
                         <a href="{{ route('admin.dashboard') }}" class="nav-link">Dashboard</a>
@@ -52,6 +51,7 @@
                     @endif
                 @else
                     <a href="{{ route('login') }}" class="nav-link" style="color:var(--color-brand-400);">Login</a>
+                    <a href="{{ route('register') }}" class="nav-link" style="color:white;background:var(--color-brand-500);padding:0.375rem 1rem;border-radius:999px;">Daftar</a>
                 @endauth
             </div>
 
@@ -63,20 +63,20 @@
 
             {{-- Mobile Toggle --}}
             <button class="menu-toggle-btn md:hidden" id="menu-toggle" aria-label="Buka menu">
-                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
             </button>
         </div>
 
         {{-- Mobile Menu --}}
-        <div class="mobile-menu px-4 bg-dark-800" id="mobile-menu" style="display:none;">
-            <form action="{{ route('search') }}" method="GET" class="mobile-menu-search mb-4">
-                <input type="text" name="q" placeholder="Cari judul, topik..." required>
-                <button type="submit"><svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="m21 21-4.35-4.35"/></svg></button>
-            </form>
+        <div class="mobile-menu px-4 bg-dark-800 " id="mobile-menu" style="display:none;">
+
+
             <div class="flex flex-col gap-2 pb-4">
                 <a href="{{ route('home') }}" class="mobile-nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Beranda</a>
                 <a href="{{ route('search') }}" class="mobile-nav-link {{ request()->routeIs('search') ? 'active' : '' }}">Semua Berita</a>
-                
+
                 @auth
                     @if(auth()->user()->role === 'admin')
                         <a href="{{ route('admin.dashboard') }}" class="mobile-nav-link">Dashboard Admin</a>
@@ -90,7 +90,19 @@
                         <button type="submit" class="mobile-nav-link" style="width:100%;text-align:left;color:var(--color-brand-400);">Logout</button>
                     </form>
                 @else
-                    <a href="{{ route('login') }}" class="mobile-nav-link" style="color:var(--color-brand-400);">Login / MASUK</a>
+                    {{-- Selalu tampil untuk guest di mobile --}}
+                    <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
+                        <a href="{{ route('login') }}"
+                           class="mobile-nav-link"
+                           style="flex:1;text-align:center;color:var(--color-brand-400);border:1px solid var(--color-brand-500);border-radius:8px;">
+                            Login
+                        </a>
+                        <a href="{{ route('register') }}"
+                           class="mobile-nav-link"
+                           style="flex:1;text-align:center;color:white;background:var(--color-brand-500);border-radius:8px;">
+                            Daftar
+                        </a>
+                    </div>
                 @endauth
             </div>
         </div>
@@ -104,7 +116,7 @@
     <div data-flash="{{ session('error') }}" data-flash-type="error"></div>
     @endif
 
-    {{-- Main Content Space --}}
+    {{-- Main Content --}}
     <main>
         @yield('content')
     </main>
@@ -118,7 +130,7 @@
                         <div style="width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:var(--color-brand-500);">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
                         </div>
-                        <span style="font-family:var(--font-display);font-weight:700;color:white;font-size:1.25rem;">Info<span style="color:var(--color-brand-400);">Seputar</span></span>
+                        <span style="font-family:var(--font-display);font-weight:700;color:white;font-size:1.25rem;">Info<span style="color:var(--color-brand-400);">Seputar</span> +62</span>
                     </a>
                     <p style="font-size:0.875rem;color:var(--color-dark-200);line-height:1.6;max-width:300px;">
                         Portal berita digital modern terpercaya yang menyajikan informasi aktual dan mendalam.
@@ -157,7 +169,7 @@
     document.getElementById('menu-toggle')?.addEventListener('click', function() {
         const menu = document.getElementById('mobile-menu');
         const path = document.getElementById('menu-icon-path');
-        if(menu.style.display === 'none') {
+        if (menu.style.display === 'none') {
             menu.style.display = 'block';
             path.setAttribute('d', 'M6 18L18 6M6 6l12 12');
             this.style.color = 'var(--color-brand-400)';
@@ -168,6 +180,7 @@
         }
     });
     </script>
+
     @stack('scripts')
 </body>
 </html>

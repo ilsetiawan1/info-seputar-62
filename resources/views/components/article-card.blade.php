@@ -5,7 +5,7 @@
     <a href="{{ route('post.show', $post->slug) }}" class="card-thumb" aria-label="{{ $post->title }}" tabindex="-1">
         <div class="card-thumb-inner {{ $post->thumbnail ? '' : 'no-img' }}">
             @if($post->thumbnail)
-                <img src="{{ asset('storage/' . $post->thumbnail) }}"
+                <img src="{{ $post->thumbnail_url }}"
                      alt="{{ $post->title }}"
                      loading="lazy" decoding="async">
             @else

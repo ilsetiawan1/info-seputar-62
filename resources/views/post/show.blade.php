@@ -5,7 +5,7 @@
 @section('og_title', $post->title)
 @section('og_description', $post->excerpt)
 @section('og_type', 'article')
-@if($post->thumbnail)@section('og_image', asset('storage/' . $post->thumbnail))@endif
+@if($post->thumbnail)@section('og_image', $post->thumbnail_url)@endif
 @section('show-reading-bar', true)
 
 @section('content')
@@ -13,7 +13,7 @@
 {{-- Thumbnail hero --}}
 @if($post->thumbnail)
 <div style="width:100%;max-height:400px;overflow:hidden;">
-    <img src="{{ asset('storage/' . $post->thumbnail) }}"
+    <img src="{{ $post->thumbnail_url }}"
          alt="{{ $post->title }}"
          style="width:100%;max-height:400px;object-fit:cover;display:block;filter:brightness(0.85);"
          loading="eager">
@@ -189,7 +189,7 @@
                     <a href="{{ route('post.show', $rel->slug) }}" style="display:flex;gap:0.75rem;text-decoration:none;group">
                         <div style="width:60px;height:60px;border-radius:0.5rem;overflow:hidden;flex-shrink:0;">
                             @if($rel->thumbnail)
-                            <img src="{{ asset('storage/' . $rel->thumbnail) }}" alt="{{ $rel->title }}" style="width:100%;height:100%;object-fit:cover;">
+                            <img src="{{ $rel->thumbnail_url }}" alt="{{ $rel->title }}" style="width:100%;height:100%;object-fit:cover;">
                             @else
                             <div class="img-placeholder" style="width:100%;height:100%;"></div>
                             @endif
