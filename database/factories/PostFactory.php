@@ -20,7 +20,7 @@ class PostFactory extends Factory
             'slug'         => Str::slug($title) . '-' . $this->faker->unique()->numberBetween(1000, 9999),
             'excerpt'      => $this->faker->paragraph,
             'content'      => implode("\n\n", $this->faker->paragraphs(6)),
-            'thumbnail'    => null,
+            'thumbnail'    => 'https://picsum.photos/seed/' . Str::slug(substr($title, 0, 20)) . '/800/600',
             'category_id'  => \App\Models\Category::inRandomOrder()->value('id') ?? Category::factory(),
             'author_id'    => \App\Models\User::inRandomOrder()->value('id') ?? User::factory(),
             'status'       => $this->faker->randomElement(['draft', 'review', 'published', 'archived']),
